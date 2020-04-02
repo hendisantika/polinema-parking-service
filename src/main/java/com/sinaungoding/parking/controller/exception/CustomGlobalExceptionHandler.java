@@ -73,8 +73,8 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
         response.sendError(UNAUTHORIZED.value());
     }
 
-    @ExceptionHandler(AuthServiceException.class)
-    public ResponseEntity<CustomErrorResponse> customHandleAuthError(AuthServiceException ex, WebRequest request) {
+    @ExceptionHandler(ApiException.class)
+    public ResponseEntity<CustomErrorResponse> customHandleAuthError(ApiException ex, WebRequest request) {
 
         CustomErrorResponse errors = new CustomErrorResponse();
         errors.setTimestamp(new Date());

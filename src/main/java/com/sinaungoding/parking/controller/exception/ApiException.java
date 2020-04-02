@@ -19,6 +19,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthServiceException extends Exception {
+public class ApiException extends Exception {
     private ResponseApi status;
 }
