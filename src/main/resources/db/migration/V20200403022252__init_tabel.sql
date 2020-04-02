@@ -13,12 +13,13 @@ unique(email)
 
 create table perso(
 serial varchar(16) not null primary key,
+nim varchar(18) not null,
 nopol varchar(12) not null,
 tanggal datetime not null,
 expired date not null,
 active tinyint,
 unique(nopol),
-add foreign key(nim) references mahasiswa(nim)
+foreign key(nim) references mahasiswa(nim)
 );
 
 create table kantong(

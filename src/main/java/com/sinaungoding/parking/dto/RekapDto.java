@@ -29,7 +29,7 @@ public class RekapDto {
     private String serial;
     @NotNull
     @NotEmpty
-    private String idKantong;
+    private String kode;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date tanggal;
     private boolean in_out;

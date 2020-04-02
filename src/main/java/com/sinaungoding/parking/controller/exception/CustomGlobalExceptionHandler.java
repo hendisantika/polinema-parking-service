@@ -68,11 +68,6 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
 
     }
 
-    @ExceptionHandler(ClientException.class)
-    public void springHandleApiError(HttpServletResponse response) throws IOException {
-        response.sendError(UNAUTHORIZED.value());
-    }
-
     @ExceptionHandler(ApiException.class)
     public ResponseEntity<CustomErrorResponse> customHandleAuthError(ApiException ex, WebRequest request) {
 

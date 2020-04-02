@@ -27,9 +27,10 @@ public class Rekap {
     @Column(length = 40)
     private String id;
     private String serial;
-    private String idKantong;
+    private String kode;
     @Temporal(TemporalType.TIMESTAMP)
     private Date tanggal;
+    @Column(columnDefinition = "tinyint")
     private boolean in_out;
     @Temporal(TemporalType.TIMESTAMP)
     private Date catat;

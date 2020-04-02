@@ -27,6 +27,7 @@ public class Perso {
     private Date tanggal;
     @Temporal(TemporalType.DATE)
     private Date expired;
+    @Column(columnDefinition = "tinyint")
     private boolean active;
     @ManyToOne
     @JoinColumn(name = "nim")
