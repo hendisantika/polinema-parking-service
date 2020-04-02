@@ -16,10 +16,10 @@ import com.sinaungoding.parking.controller.exception.ApiException;
 import com.sinaungoding.parking.controller.exception.InternalServerErrorException;
 import com.sinaungoding.parking.controller.exception.NotFoundException;
 import com.sinaungoding.parking.controller.exception.ResponseApi;
-import com.sinaungoding.parking.dto.KantongDto;
-import com.sinaungoding.parking.entitas.Kantong;
+import com.sinaungoding.parking.dto.PersoDto;
+import com.sinaungoding.parking.entitas.Perso;
 import com.sinaungoding.parking.repository.KantongRepository;
-import com.sinaungoding.parking.repository.MahasiswaRepository;
+import com.sinaungoding.parking.repository.PersoRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
@@ -38,18 +38,18 @@ import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @Slf4j
-public class KantongController {
+public class PersoController {
     @Autowired
-    private KantongRepository repository;
+    private PersoRepository repository;
     @Autowired
     private ModelMapper modelMapper;
 
     @PostMapping
     @ResponseStatus(CREATED)
-    public KantongDto simpan(@Valid @RequestBody KantongDto dto) throws Exception {
+    public PersoDto simpan(@Valid @RequestBody PersoDto dto) throws Exception {
         try {
-            Kantong kantong = modelMapper.map(dto, Kantong.class);
-            repository.save(kantong);
+            Perso perso = modelMapper.map(dto, Perso.class);
+            repository.save(perso);
             return dto;
         } catch (Exception e) {
             Throwable cause, resultCause = e;
@@ -65,10 +65,10 @@ public class KantongController {
     }
 
     @GetMapping
-    public KantongDto getMahasiswaDto(@PathVariable("id") String id) throws Exception {
+    public PersoDto getMahasiswaDto(@PathVariable("serial") String serial) throws Exception {
         try {
-            Kantong kantong = repository.findById(id).orElseThrow(() -> new NotFoundException(id));
-            KantongDto dto = modelMapper.map(kantong, KantongDto.class);
+            Perso perso = repository.findById(serial).orElseThrow(() -> new NotFoundException(serial));
+            PersoDto dto = modelMapper.map(perso, PersoDto.class);
             return dto;
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -77,12 +77,12 @@ public class KantongController {
     }
 
     @GetMapping
-    public Page<KantongDto> getMahasiswaDtos(Pageable pageable) throws Exception {
+    public Page<PersoDto> getMahasiswaDtos(Pageable pageable) throws Exception {
         try {
-            Page<Kantong> all = repository.findAll(pageable);
-            List<KantongDto> mahasiswaDtos = new ArrayList<>();
-            all.forEach(kantong -> {
-                KantongDto dto = modelMapper.map(kantong, KantongDto.class);
+            Page<Perso> all = repository.findAll(pageable);
+            List<PersoDto> mahasiswaDtos = new ArrayList<>();
+            all.forEach(perso -> {
+                PersoDto dto = modelMapper.map(perso, PersoDto.class);
                 mahasiswaDtos.add(dto);
             });
             return new PageImpl<>(mahasiswaDtos, pageable, all.getTotalElements());
@@ -94,13 +94,13 @@ public class KantongController {
 
     @PatchMapping
     @ResponseStatus(OK)
-    public void update(@PathVariable("id") String id, @Valid @RequestBody KantongDto dto) throws Exception {
+    public void update(@PathVariable("serial") String serial, @Valid @RequestBody PersoDto dto) throws Exception {
         try {
-            Kantong kantong1 = repository.findById(id).orElseThrow(() -> new NotFoundException(id));
+            Perso kantong1 = repository.findById(serial).orElseThrow(() -> new NotFoundException(serial));
 
-            Kantong kantong = modelMapper.map(dto, Kantong.class);
-            kantong.setId(id);
-            BeanUtils.copyProperties(kantong, kantong1);
+            Perso perso = modelMapper.map(dto, Perso.class);
+            perso.setSerial(serial);
+            BeanUtils.copyProperties(perso, kantong1);
             repository.save(kantong1);
         } catch (Exception e) {
             Throwable cause, resultCause = e;
@@ -117,10 +117,10 @@ public class KantongController {
 
     @DeleteMapping
     @ResponseStatus(OK)
-    public void delete(@PathVariable("id") String id) throws Exception {
+    public void delete(@PathVariable("serial") String serial) throws Exception {
         try {
-            Kantong mahasiswa1 = repository.findById(id).orElseThrow(() -> new NotFoundException(id));
-            repository.deleteById(id);
+            Perso mahasiswa1 = repository.findById(serial).orElseThrow(() -> new NotFoundException(serial));
+            repository.deleteById(serial);
         } catch (Exception e) {
             log.error(e.getMessage());
             throw new InternalServerErrorException(e.getMessage());
