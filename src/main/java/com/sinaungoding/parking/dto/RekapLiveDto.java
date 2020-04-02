@@ -23,12 +23,15 @@ import java.util.Date;
 @Data
 public class RekapLiveDto {
     private String id;
+    private Date tanggal;
+    @NotNull
+    @NotEmpty
+    private String kode;
     @NotNull
     @NotEmpty
     private int terisi;
     @NotEmpty
     @NotNull
     private int sisa;
-    @Temporal(TemporalType.TIME)
     private Date catat;
 }

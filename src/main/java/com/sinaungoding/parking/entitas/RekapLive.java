@@ -26,6 +26,9 @@ public class RekapLive {
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @Column(length = 40)
     private String id;
+    @Temporal(TemporalType.DATE)
+    private Date tanggal;
+    private String kode;
     private int terisi;
     private int sisa;
     @Temporal(TemporalType.TIME)
