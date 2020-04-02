@@ -12,7 +12,8 @@
 
 package com.sinaungoding.parking.repository;
 
+import com.sinaungoding.parking.entitas.RekapLive;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface RekapLive extends PagingAndSortingRepository<RekapLive, String> {
+public interface RekapLiveRepository extends PagingAndSortingRepository<RekapLive, String> {
 }
