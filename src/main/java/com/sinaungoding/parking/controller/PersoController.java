@@ -38,6 +38,7 @@ import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @Slf4j
+@RequestMapping("/api/v1.0/perso")
 public class PersoController {
     @Autowired
     private PersoRepository repository;
@@ -64,7 +65,7 @@ public class PersoController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/{serial}")
     public PersoDto getMahasiswaDto(@PathVariable("serial") String serial) throws Exception {
         try {
             Perso perso = repository.findById(serial).orElseThrow(() -> new NotFoundException(serial));
@@ -92,7 +93,7 @@ public class PersoController {
         }
     }
 
-    @PatchMapping
+    @PatchMapping("/{serial}")
     @ResponseStatus(OK)
     public void update(@PathVariable("serial") String serial, @Valid @RequestBody PersoDto dto) throws Exception {
         try {

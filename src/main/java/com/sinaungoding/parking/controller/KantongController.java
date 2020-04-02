@@ -38,6 +38,7 @@ import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @Slf4j
+@RequestMapping("/api/v1.0/kantong")
 public class KantongController {
     @Autowired
     private KantongRepository repository;
@@ -64,7 +65,7 @@ public class KantongController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public KantongDto getMahasiswaDto(@PathVariable("id") String id) throws Exception {
         try {
             Kantong kantong = repository.findById(id).orElseThrow(() -> new NotFoundException(id));
@@ -92,7 +93,7 @@ public class KantongController {
         }
     }
 
-    @PatchMapping
+    @PatchMapping("/{id}")
     @ResponseStatus(OK)
     public void update(@PathVariable("id") String id, @Valid @RequestBody KantongDto dto) throws Exception {
         try {

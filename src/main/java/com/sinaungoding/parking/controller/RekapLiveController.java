@@ -38,6 +38,7 @@ import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @Slf4j
+@RequestMapping("/api/v1.0/rekap-live")
 public class RekapLiveController {
     @Autowired
     private RekapLiveRepository repository;
@@ -64,7 +65,7 @@ public class RekapLiveController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public RekapLiveDto getMahasiswaDto(@PathVariable("id") String id) throws Exception {
         try {
             RekapLive rekap = repository.findById(id).orElseThrow(() -> new NotFoundException(id));
@@ -92,7 +93,7 @@ public class RekapLiveController {
         }
     }
 
-    @PatchMapping
+    @PatchMapping("/{id}")
     @ResponseStatus(OK)
     public void update(@PathVariable("id") String id, @Valid @RequestBody RekapLiveDto dto) throws Exception {
         try {

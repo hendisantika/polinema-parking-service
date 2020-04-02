@@ -37,6 +37,7 @@ import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @Slf4j
+@RequestMapping("/api/v1.0/mahasiswa")
 public class MahasiswaController {
     @Autowired
     private MahasiswaRepository repository;
@@ -63,7 +64,7 @@ public class MahasiswaController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/{nim}")
     public MahasiswaDto getMahasiswaDto(@PathVariable("nim") String nim) throws Exception {
         try {
             Mahasiswa mahasiswa = repository.findById(nim).orElseThrow(() -> new NotFoundException(nim));
@@ -91,7 +92,7 @@ public class MahasiswaController {
         }
     }
 
-    @PatchMapping
+    @PatchMapping("/{nim}")
     @ResponseStatus(OK)
     public void update(@PathVariable("nim") String nim, @Valid @RequestBody MahasiswaDto dto) throws Exception {
         try {
