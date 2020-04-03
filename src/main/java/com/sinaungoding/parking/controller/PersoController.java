@@ -38,7 +38,7 @@ import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @Slf4j
-@RequestMapping("/api/v1.0/perso")
+@RequestMapping("/api/v1/perso")
 public class PersoController {
     @Autowired
     private PersoRepository repository;

@@ -38,7 +38,7 @@ import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @Slf4j
-@RequestMapping("/api/v1.0/kantong")
+@RequestMapping("/api/v1/kantong")
 public class KantongController {
     @Autowired
     private KantongRepository repository;

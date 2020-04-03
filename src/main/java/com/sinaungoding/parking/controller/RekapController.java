@@ -38,7 +38,7 @@ import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @Slf4j
-@RequestMapping("/api/v1.0/rekap")
+@RequestMapping("/api/v1/rekap")
 public class RekapController {
     @Autowired
     private RekapRepository repository;
