@@ -13,15 +13,9 @@
 package com.sinaungoding.parking.dto;
 
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Data
 public class KantongDto {
@@ -33,6 +27,6 @@ public class KantongDto {
     @NotEmpty
     private String nama;
     private String keterangan;
-    @Size(min = 1)
-    private int kapasitas;
+    @NotNull
+    private Integer kapasitas;
 }

@@ -29,8 +29,8 @@ public class RekapLive {
     @Temporal(TemporalType.DATE)
     private Date tanggal;
     private String kode;
-    private int terisi;
-    private int sisa;
+    private Integer terisi;
+    private Integer sisa;
     @Temporal(TemporalType.TIME)
     private Date catat;
 }

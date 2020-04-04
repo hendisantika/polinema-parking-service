@@ -31,5 +31,5 @@ public class Kantong {
     private String kode;
     private String nama;
     private String keterangan;
-    private int kapasitas;
+    private Integer kapasitas;
 }
