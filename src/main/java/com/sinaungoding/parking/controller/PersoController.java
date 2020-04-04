@@ -116,7 +116,7 @@ public class PersoController {
         }
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{serial}")
     @ResponseStatus(OK)
     public void delete(@PathVariable("serial") String serial) throws Exception {
         try {
