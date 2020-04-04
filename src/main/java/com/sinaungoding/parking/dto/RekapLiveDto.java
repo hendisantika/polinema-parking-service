@@ -27,11 +27,7 @@ public class RekapLiveDto {
     @NotNull
     @NotEmpty
     private String kode;
-    @NotNull
-    @NotEmpty
     private int terisi;
-    @NotEmpty
-    @NotNull
     private int sisa;
     private Date catat;
 }

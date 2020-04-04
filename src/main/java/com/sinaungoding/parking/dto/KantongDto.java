@@ -33,8 +33,6 @@ public class KantongDto {
     @NotEmpty
     private String nama;
     private String keterangan;
-    @NotNull
-    @NotEmpty
     @Size(min = 1)
     private int kapasitas;
 }
