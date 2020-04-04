@@ -115,7 +115,7 @@ public class MahasiswaController {
         }
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{nim}")
     @ResponseStatus(OK)
     public void delete(@PathVariable("nim") String nim) throws Exception {
         try {

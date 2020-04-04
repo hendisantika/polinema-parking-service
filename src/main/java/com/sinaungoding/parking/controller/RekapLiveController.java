@@ -116,7 +116,7 @@ public class RekapLiveController {
         }
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseStatus(OK)
     public void delete(@PathVariable("id") String id) throws Exception {
         try {
