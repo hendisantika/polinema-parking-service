@@ -33,9 +33,9 @@ public class Rekap {
     @Temporal(TemporalType.TIMESTAMP)
     private Date tanggalKeluar;
     @Column(columnDefinition = "tinyint")
-    private boolean masuk;
+    private Boolean masuk;
     @Column(columnDefinition = "tinyint")
-    private boolean keluar;
+    private Boolean keluar;
     @Temporal(TemporalType.TIMESTAMP)
     private Date catat;
 }
