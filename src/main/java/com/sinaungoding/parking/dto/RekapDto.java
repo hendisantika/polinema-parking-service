@@ -31,8 +31,11 @@ public class RekapDto {
     @NotEmpty
     private String kode;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date tanggal;
-    private boolean in_out;
+    private Date tanggalMasuk;
+    private boolean masuk;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date tanggalKeluar;
+    private boolean keluar;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date catat;
 }

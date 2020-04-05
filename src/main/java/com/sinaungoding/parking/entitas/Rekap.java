@@ -29,9 +29,13 @@ public class Rekap {
     private String serial;
     private String kode;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date tanggal;
+    private Date tanggalMasuk;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date tanggalKeluar;
     @Column(columnDefinition = "tinyint")
-    private boolean in_out;
+    private boolean masuk;
+    @Column(columnDefinition = "tinyint")
+    private boolean keluar;
     @Temporal(TemporalType.TIMESTAMP)
     private Date catat;
 }
