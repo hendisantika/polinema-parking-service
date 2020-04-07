@@ -38,7 +38,7 @@ public class DashboardController {
     @Autowired
     private ModelMapper modelMapper;
 
-    @GetMapping("/findByDate/{date}")
+    @GetMapping("/{date}")
     public List<RekapLiveDto> findByDate(@PathVariable("date")
                                          @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) throws Exception {
         try {
