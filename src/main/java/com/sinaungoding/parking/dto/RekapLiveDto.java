@@ -12,6 +12,7 @@
 
 package com.sinaungoding.parking.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -23,6 +24,7 @@ import java.util.Date;
 @Data
 public class RekapLiveDto {
     private String id;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date tanggal;
     @NotNull
     @NotEmpty
