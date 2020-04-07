@@ -20,4 +20,11 @@ import java.util.List;
 
 public interface RekapLiveRepository extends JpaRepository<RekapLive, String> {
     List<RekapLive> findAllByTanggal(Date tanggal);
+
+    List<RekapLive> findByTanggalEquals(Date date);
+
+    List<RekapLive> findAllByTanggalBetween(Date start, Date end);
+
+    List<RekapLive> findByTanggalIs(Date date);
+
 }

@@ -24,8 +24,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -42,9 +42,12 @@ public class DashboardController {
     public List<RekapLiveDto> findByDate(@PathVariable("date")
                                          @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) throws Exception {
         try {
-            log.info(date.toString());
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            calendar.add(Calendar.HOUR, 23);
+            calendar.add(Calendar.MINUTE, 55);
             List<RekapLiveDto> dtos = new ArrayList<>();
-            List<RekapLive> rekapLiveByTanggal = repository.findAllByTanggal(date);
+            List<RekapLive> rekapLiveByTanggal = repository.findAllByTanggal(calendar.getTime());
             log.info(String.format("jumlah %s record", "" + rekapLiveByTanggal.size()));
             if (!rekapLiveByTanggal.isEmpty()) {
                 rekapLiveByTanggal.forEach(rekapLive -> {

@@ -14,9 +14,7 @@ package com.sinaungoding.parking.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -31,5 +29,6 @@ public class RekapLiveDto {
     private String kode;
     private Integer terisi;
     private Integer sisa;
+    @JsonFormat(pattern = "HH:mm:ss")
     private Date catat;
 }
