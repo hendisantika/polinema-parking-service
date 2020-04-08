@@ -44,8 +44,8 @@ public class DashboardController {
         try {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
-            calendar.add(Calendar.HOUR, 23);
-            calendar.add(Calendar.MINUTE, 55);
+//            calendar.add(Calendar.HOUR, 23);
+//            calendar.add(Calendar.MINUTE, 55);
             List<RekapLiveDto> dtos = new ArrayList<>();
             List<RekapLive> rekapLiveByTanggal = repository.findAllByTanggal(calendar.getTime());
             log.info(String.format("jumlah %s record", "" + rekapLiveByTanggal.size()));

@@ -13,12 +13,12 @@
 package com.sinaungoding.parking.repository;
 
 import com.sinaungoding.parking.entitas.RekapLive;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.Date;
 import java.util.List;
 
-public interface RekapLiveRepository extends JpaRepository<RekapLive, String> {
+public interface RekapLiveRepository extends PagingAndSortingRepository<RekapLive, String> {
     List<RekapLive> findAllByTanggal(Date tanggal);
 
     List<RekapLive> findByTanggalEquals(Date date);
